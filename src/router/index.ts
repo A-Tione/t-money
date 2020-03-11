@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Money from '@/views/Money.vue'
 import Labels from '@/views/Labels.vue'
 import Statis from '@/views/Statis.vue'
+import NotFound from '@/views/NotFound.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -24,6 +25,10 @@ const routes = [
         path: '/statis',
         name: 'Staits',
         component: Statis
+    },
+    {
+        path: '*',
+        component: NotFound
     },
 ]
 
