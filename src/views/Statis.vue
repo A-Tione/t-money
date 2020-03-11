@@ -1,14 +1,13 @@
 <template>
     <div>
         statis
+        <Nav></Nav>
     </div>
 </template>
 
 <script lang="ts">
     export default {
         name: 'statis',
-        components: {},
-
         props: {},
 
         data() {

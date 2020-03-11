@@ -1,14 +1,13 @@
 <template>
     <div>
         money
+        <Nav></Nav>
     </div>
 </template>
 
 <script lang="ts">
     export default {
         name: 'money',
-        components: {},
-
         props: {},
 
         data() {
