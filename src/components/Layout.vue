@@ -25,7 +25,6 @@
 
 <style lang="scss" scoped>
     .nav-rapper {
-        border: 1px solid green;
         display: flex;
         flex-direction: column;
         height: 100vh;
