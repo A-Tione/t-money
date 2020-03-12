@@ -48,9 +48,9 @@
                 width: 32px;
                 height: 32px;
             }
-        }
-        > .item.selected {
-            color: red;
+            &.selected {
+                color: red;
+            }
         }
     }
 
