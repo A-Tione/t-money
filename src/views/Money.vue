@@ -3,7 +3,7 @@
         <Layout>
             <tags></tags>
             <notes></notes>
-            <types></types>
+            <types xxx="5555"></types>
             <number-pad></number-pad>
         </Layout>
     </div>
