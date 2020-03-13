@@ -11,30 +11,54 @@
     </div>
 </template>
 
-<script>
-    export default {
-        name: 'Types',
-        props: ['xxx'],
+<script lang="ts">
+    import Vue from 'vue';
+    import {Component} from 'vue-property-decorator';// 装饰器
 
-        data() {
-            return {
-                type: '-'
+    const GreetingProps = Vue.extend({
+        props: {
+            xxx: String
+        }
+    });
+
+    @Component
+    export default class Types extends Vue {
+        type = '-';
+
+        mounted(): void {
+            console.log(this.type);
+        }
+
+        selectType(type: string) { // 或+或-
+            if (type !== '-' && type !== '+') {
+                throw new Error('type is unknown');
             }
-        },
-
-        mounted() {
-            console.log(this.xxx)
-        },
-
-        methods: {
-            selectType(type) { // 或+或-
-                if (type !== '-' && type !== '+') {
-                    throw new Error('type is unknown')
-                }
-                return this.type = type
-            }
+            return this.type = type;
         }
     }
+    // export default {
+    //     name: 'Types',
+    //     props: ['xxx'],
+    //
+    //     data() {
+    //         return {
+    //             type: '-'
+    //         }
+    //     },
+    //
+    //     mounted() {
+    //         console.log(this.xxx)
+    //     },
+    //
+    //     methods: {
+    //         selectType(type) { // 或+或-
+    //             if (type !== '-' && type !== '+') {
+    //                 throw new Error('type is unknown')
+    //             }
+    //             return this.type = type
+    //         }
+    //     }
+    // }
 </script>
 
 <style lang="scss" scoped>
