@@ -59,7 +59,6 @@
             this.output = '0';
         }
 
-
     }
 
 </script>
