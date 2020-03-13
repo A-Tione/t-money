@@ -20,7 +20,6 @@
         onInput(event: KeyboardEvent) {
             const input = event.target as HTMLInputElement;
             this.value = input.value;
-            console.log(this.value, '11111');
         }
     }
 </script>
