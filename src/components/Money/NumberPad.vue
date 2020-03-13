@@ -1,29 +1,67 @@
 <template>
     <div class="numberPad">
-        <div class="output">100</div>
+        <div class="output">{{output}}</div>
         <div class="buttons">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>删除</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>清空</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button class="ok">OK</button>
-            <button class="zero">0</button>
-            <button>.</button>
+            <button @click="inputContent">1</button>
+            <button @click="inputContent">2</button>
+            <button @click="inputContent">3</button>
+            <button @click="deleteOne">删除</button>
+            <button @click="inputContent">4</button>
+            <button @click="inputContent">5</button>
+            <button @click="inputContent">6</button>
+            <button @click="clearOrder">清空</button>
+            <button @click="inputContent">7</button>
+            <button @click="inputContent">8</button>
+            <button @click="inputContent">9</button>
+            <button @click="submitOrder" class="ok">OK</button>
+            <button @click="inputContent" class="zero">0</button>
+            <button @click="inputContent">.</button>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-    export default {
-        name: 'NumberPad'
+    import {Vue, Component, Prop,} from 'vue-property-decorator';
+
+    @Component
+    export default class NumberPad extends Vue {
+        output = '0';
+
+        inputContent(event: MouseEvent) {
+            const button = (event.target as HTMLButtonElement);// 强制规定为HTMLButtonElement类型
+            const text = button.textContent!;// !表示不会为空
+            if (this.output.length === 16) {// 最大长度为16位
+                return;
+            }
+            if (this.output === '0') {
+                if ('1234567890'.indexOf(text) >= 0) {
+                    this.output = text;
+                } else {
+                    this.output += text;
+                }
+                return;
+            }
+            if (this.output.indexOf('.') >= 0 && text === '.') {
+                return;
+            }
+            this.output += text;
+        }
+
+        deleteOne() {
+            if (this.output.length === 1) {
+                this.output = '0';
+            } else {
+                this.output = this.output.slice(0, -1);
+            }
+        }
+
+        clearOrder() {
+            this.output = '0';
+        }
+
+
     }
+
 </script>
 
 <style lang="scss" scoped>
@@ -36,6 +74,7 @@
             font-family: Consolas, monospace;
             padding: 9px 16px;
             text-align: right;
+            height: 72px;
         }
         .buttons {
             @extend %clearFix;
