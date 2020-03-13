@@ -19,7 +19,7 @@
     @Component
 
     export default class Tags extends Vue {
-        @Prop() source: string[] | undefined;
+        @Prop(String) source: string[] | undefined;
         selectedTags: string[] = [];
 
         toggle(tag: string) {
