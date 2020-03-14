@@ -5,7 +5,7 @@
             <tags :source.sync="tags" @update:value="onUpdateTags"></tags>
             <notes @update:value="onUpdateNotes"></notes>
             <types :value.sync="record.type"></types>
-            <number-pad :value.sync="record.amount"></number-pad>
+            <number-pad :value.sync="record.amount" @submit="save"></number-pad>
             {{record}}
         </Layout>
     </div>
@@ -30,7 +30,7 @@
 
     export default class Money extends Vue {
         tags = ['衣', '食', '住', '行', '长辈'];
-
+        recordList: Record[] = [];
         record: Record = {tags: [], notes: '', type: '-', amount: 0};
 
         onUpdateTags(value: string[]) {
@@ -43,9 +43,10 @@
             this.record.notes = value;
         }
 
-        onUpdateAmount(value: string) {
-            console.log(value);
-            this.record.amount = parseFloat(value);
+        save() {
+            const data = JSON.parse(JSON.stringify(this.record));
+            this.recordList.push(data);
+            window.localStorage.setItem('recordList', JSON.stringify(this.recordList));
         }
 
     }
