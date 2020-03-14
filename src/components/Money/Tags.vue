@@ -17,9 +17,8 @@
     import {Vue, Component, Prop} from 'vue-property-decorator';
 
     @Component
-
     export default class Tags extends Vue {
-        @Prop(String) source: string[] | undefined;
+        @Prop(Array) source: string[] | undefined;
         selectedTags: string[] = [];
 
         toggle(tag: string) {
@@ -29,7 +28,7 @@
             } else {
                 this.selectedTags.push(tag);
             }
-
+            this.$emit('update:value', this.selectedTags);
         }
 
         create() {
