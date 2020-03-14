@@ -23,6 +23,7 @@
         notes: string;
         type: string;
         amount: number;
+        createdDate?: Date; // object细分为不同的类 构造函数
     }
     @Component({
         components: {tags, notes, types, numberPad,}
@@ -30,9 +31,8 @@
 
     export default class Money extends Vue {
         tags = ['衣', '食', '住', '行', '长辈'];
-        recordList: Record[] = [];
+        recordList: Record[] = JSON.parse(window.localStorage.getItem('recordList') || '[]');
         record: Record = {tags: [], notes: '', type: '-', amount: 0};
-
         onUpdateTags(value: string[]) {
             console.log(value);
             this.record.tags = value;
@@ -44,7 +44,8 @@
         }
 
         save() {
-            const data = JSON.parse(JSON.stringify(this.record));
+            const data: Record = JSON.parse(JSON.stringify(this.record));
+            data.createdDate = new Date();
             this.recordList.push(data);
             window.localStorage.setItem('recordList', JSON.stringify(this.recordList));
         }
