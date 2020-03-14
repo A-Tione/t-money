@@ -1,10 +1,12 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Money from '@/views/Money.vue'
-import Labels from '@/views/Labels.vue'
-import Statis from '@/views/Statis.vue'
-import NotFound from '@/views/NotFound.vue'
-Vue.use(VueRouter)
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Money from '@/views/Money.vue';
+import Labels from '@/views/Labels.vue';
+import Statis from '@/views/Statis.vue';
+import NotFound from '@/views/NotFound.vue';
+import EditLabel from '@/views/EditLabel.vue';
+
+Vue.use(VueRouter);
 
 const routes = [
     {
@@ -27,13 +29,18 @@ const routes = [
         component: Statis
     },
     {
+        path: '/labels/edit/:id',
+        name: 'Edit',
+        component: EditLabel
+    },
+    {
         path: '*',
         component: NotFound
     },
-]
+];
 
 const router = new VueRouter({
     routes
-})
+});
 
-export default router
+export default router;

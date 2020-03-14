@@ -4,9 +4,9 @@
             <button @click="create">新增标签</button>
         </div>
         <ul class="current">
-            <li :class="{selected: selectedTags.indexOf(tag) >= 0}" :key="tag"
+            <li :class="{selected: selectedTags.indexOf(tag)>=0}" :key="tag.id"
                 @click="toggle(tag)"
-                v-for="tag in source">{{tag}}
+                v-for="tag in source">{{tag.name}}
             </li>
         </ul>
     </div>
@@ -15,6 +15,7 @@
 
 <script lang="ts">
     import {Vue, Component, Prop} from 'vue-property-decorator';
+    import createId from '@/lib/createId';
 
     @Component
     export default class Tags extends Vue {
@@ -34,7 +35,8 @@
         create() {
             const name = window.prompt('请输入标签名');
             if (name !== '' && this.source) {
-                this.$emit('update:source', [...this.source, name]);
+                const newName = {id: createId().toString(), name};
+                this.$emit('update:source', [...this.source, newName]);
             } else {
                 window.alert('标签名不能为空');
             }
