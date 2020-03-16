@@ -5,7 +5,7 @@
                          :to="`/labels/edit/${tag.id}`" class="tag"
                          v-for="tag in tags">
                 <span>{{tag.name}}</span>
-                <Icon name="right"/>
+                <Icon class="right" name="right"/>
             </router-link>
         </div>
         <div class="createTag-wrapper">
@@ -42,18 +42,20 @@
     .tags {
         background: white;
         font-size: 16px;
-        padding-left: 16px;
         > .tag {
             min-height: 44px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid #e6e6e6;
+            padding-left: 16px;
+            .right {
+                margin-right: 16px;
+            }
             svg {
                 width: 18px;
                 height: 18px;
                 color: #666;
-                margin-right: 16px;
             }
         }
     }

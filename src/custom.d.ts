@@ -4,7 +4,7 @@ type RecordItem = {// 记录声明类型
     notes: string;
     type: string;
     amount: number;
-    createdDate?: Date; // object细分为不同的类 构造函数
+    createdAt?: string; // object细分为不同的类 构造函数
 }
 
 type Tag = {
@@ -18,4 +18,10 @@ type TagListModel = {
     update: (id: string, name: string) => 'success' | 'not found' | 'duplicated';
     remove: (id: string) => boolean;
     save: () => void;
+}
+
+type RootState = {
+    recordList: RecordItem[];
+    tagList: Tag[];
+    currentTag?: Tag;
 }

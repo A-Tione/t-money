@@ -5,7 +5,7 @@ const recordListModel = {
     data: [] as RecordItem[],
     create(record: RecordItem) {
         const data: RecordItem = clone(record);
-        data.createdDate = new Date();
+        data.createdAt = new Date().toISOString();
         this.data.push(data);
         this.save();
     },
