@@ -13,7 +13,7 @@
                 </ol>
             </li>
         </ol>
-        <div class="noRecord" v-else>暂无记录</div>
+        <div class="noRecord" v-else>暂无记录～～</div>
     </Layout>
 </template>
 <script lang="ts">
@@ -62,7 +62,6 @@
             }
 
             const newListType = clone(recordList).filter(o => o.type === this.type);
-            console.log(newListType);
             if (newListType.length === 0) {
                 return [];
             }

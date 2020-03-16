@@ -27,7 +27,7 @@
         }
 
         created(): void {
-            this.$store.commit('fetchRecords');
+            this.$store.commit('fetchTags');
         }
 
         toggle(tag: string) {
@@ -37,7 +37,7 @@
             } else {
                 this.selectedTags.push(tag);
             }
-            this.$emit('update:value', this.selectedTags);
+            this.$emit('addTags', this.selectedTags);
         }
     }
 
@@ -50,6 +50,7 @@
         flex-grow: 1;
         display: flex;
         flex-direction: column-reverse;
+        min-height: 180px;
         > .current {
             display: flex;
             flex-wrap: wrap;

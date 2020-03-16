@@ -1,7 +1,7 @@
 <template>
     <Layout>
         <!--        sync修饰符，可直接修改子组件的source，无需另加方法-->
-        <tags></tags>
+        <tags @addTags="addTags"></tags>
         <div class="notes">
             <form-item @update:value="onUpdateNotes"
                        field-name="备注"
@@ -10,7 +10,6 @@
         </div>
         <tabs :data-source="recordTypeList" :value.sync="record.type"></tabs>
         <number-pad :value.sync="record.amount" @submit="saveOk"></number-pad>
-        {{record}}
     </Layout>
 </template>
 
@@ -39,6 +38,10 @@
 
         onUpdateNotes(value: string) {
             this.record.notes = value;
+        }
+
+        addTags(value: string[]) {
+            this.record.tags = value;
         }
 
         saveOk() {
