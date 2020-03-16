@@ -7,7 +7,8 @@
                 <ol>
                     <li :key="item.id" class="record"
                         v-for="item in group.items">
-                        <span class="notes">{{item.notes ? item.notes : '无'}}</span>
+                        <span style="margin-right: 10px">{{tagString(item.tags)}}</span>
+                        <span class="notes">{{item.notes}}</span>
                         <span>￥{{item.amount}} </span>
                     </li>
                 </ol>
@@ -34,6 +35,9 @@
             this.$store.commit('fetchRecords');
         }
 
+        tagString(tags: Tag[]) {
+            return tags.length === 0 ? '无' : tags.map(t => t.name).join(',');
+        }
 
         beautify(string: string) {
             const day = dayjs(string);

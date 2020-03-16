@@ -4,6 +4,7 @@
         <tags @addTags="addTags"></tags>
         <div class="notes">
             <form-item @update:value="onUpdateNotes"
+                       :value="record.notes"
                        field-name="备注"
                        placeholder="在这里输入备注">
             </form-item>
@@ -45,9 +46,13 @@
         }
 
         saveOk() {
+            if (this.record.tags.length === 0 || !this.record.tags) {
+                return window.alert('请至少选择一个标签');
+            }
             this.$store.commit('createRecord', this.record);
             if (this.$store.state.error === null) {
                 window.alert('保存成功');
+                this.record.notes = '';
             }
         }
 
