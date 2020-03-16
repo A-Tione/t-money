@@ -82,6 +82,7 @@
             height: 72px;
         }
         .buttons {
+            margin-bottom: 40px;
             @extend %clearFix;
             > button {
                 width: 25%;
