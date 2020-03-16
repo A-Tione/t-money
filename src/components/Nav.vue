@@ -49,7 +49,8 @@
                 height: 32px;
             }
             &.selected {
-                color: red;
+                color: orange;
+                font-weight: 900;
             }
         }
     }
