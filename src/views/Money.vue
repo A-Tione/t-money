@@ -46,6 +46,9 @@
 
         saveOk() {
             this.$store.commit('createRecord', this.record);
+            if (this.$store.state.error === null) {
+                window.alert('保存成功');
+            }
         }
 
     }

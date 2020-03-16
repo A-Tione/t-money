@@ -16,7 +16,8 @@ const store = new Vuex.Store({
     state: {
         recordList: [],
         tagList: [],
-        currentTag: undefined
+        currentTag: undefined,
+        error: null,
     } as RootState,
 
     mutations: {
@@ -68,6 +69,14 @@ const store = new Vuex.Store({
         },
         fetchTags(state) {
             state.tagList = JSON.parse(window.localStorage.getItem('tagList') || '[]');
+            if (!state.tagList || state.tagList.length === 0) {
+                const list = ['吃', '喝', '玩', '乐'];
+                for (let i = 0; i < list.length; i++) {
+                    const id = createId().toString();
+                    state.tagList.push({id, name: list[i]});
+                }
+                store.commit('saveTags');
+            }
         },
         createTag(state, name: string) {
             const names = state.tagList.map(item => item.name);
