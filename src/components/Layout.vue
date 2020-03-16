@@ -1,9 +1,9 @@
 <template>
     <div class="nav-rapper">
+        <Nav></Nav>
         <div class="content">
             <slot></slot>
         </div>
-        <Nav></Nav>
     </div>
 </template>
 
@@ -26,7 +26,7 @@
 <style lang="scss" scoped>
     .nav-rapper {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         height: 100vh;
         .content {
             overflow: auto;

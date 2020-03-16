@@ -50,7 +50,7 @@
         flex-grow: 1;
         display: flex;
         flex-direction: column-reverse;
-        min-height: 180px;
+        min-height: 90px;
         > .current {
             display: flex;
             flex-wrap: wrap;
