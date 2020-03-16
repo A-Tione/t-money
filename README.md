@@ -1,4 +1,4 @@
-# t-money
+# 小鼎记账
 
 ## Project setup
 ```

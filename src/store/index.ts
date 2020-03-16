@@ -70,7 +70,7 @@ const store = new Vuex.Store({
         fetchTags(state) {
             state.tagList = JSON.parse(window.localStorage.getItem('tagList') || '[]');
             if (!state.tagList || state.tagList.length === 0) {
-                const list = ['吃', '喝', '玩', '乐'];
+                const list = ['基建', '人工', '充值', '饲料', '售卖'];
                 for (let i = 0; i < list.length; i++) {
                     const id = createId().toString();
                     state.tagList.push({id, name: list[i]});

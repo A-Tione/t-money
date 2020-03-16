@@ -83,6 +83,7 @@
         }
         .buttons {
             margin-bottom: 40px;
+            $bg: rgba(237, 156, 59, 1);
             @extend %clearFix;
             > button {
                 width: 25%;
@@ -90,6 +91,8 @@
                 float: left;
                 background: transparent;
                 border: none;
+                font-size: 20px;
+                color: #efefef;
                 &.ok {
                     height: 64*2px;
                     float: right;
@@ -97,7 +100,7 @@
                 &.zero {
                     width: 25*2%;
                 }
-                $bg: #f2f2f2;
+                $bg: rgba(237, 156, 59, 1);
                 &:nth-child(1) {
                     background: $bg;
                 }

@@ -1,7 +1,7 @@
 <template>
     <div class="tags">
         <div class="new">
-            <button @click="createTag">新增标签</button>
+            <button @click="createTag">新增备注</button>
         </div>
         <ul class="current">
             <li :class="{selected: selectedTags.indexOf(tag)>=0}" :key="tag.id"
@@ -78,6 +78,7 @@
                 color: #999;
                 border-bottom: 1px solid;
                 padding: 0 4px;
+                font-size: 20px;
             }
         }
     }
